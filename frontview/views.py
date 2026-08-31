@@ -137,7 +137,7 @@ def signup(req):
 def logout(req):
     req.session.flush()
     return redirect('/')
-
+    
 def product_details(req, id):
     context = {"mytitle":WEBSITE_NAME}
     product = Product.objects.raw('''

@@ -115,7 +115,7 @@
 
     min-height: 100vh;
 
-    background-color: var(--sidebar);
+    background-color: #d7f3ff;
 
     color: white;
 
@@ -257,7 +257,7 @@
 }
 
 .card-options button:hover {
-    background-color: var(--primary);
+    background-color: blue;
 
     color: white;
 
@@ -423,9 +423,9 @@
     margin: 7px 0;
     padding: 12px 15px;
 
-    background-color: #eff6ff;
+    background-color: #fff53a;
 
-    border: 1px solid #bfdbfe;
+    border: 1px solid #ff4545;
     border-left: 4px solid var(--primary);
 
     border-radius: 8px;

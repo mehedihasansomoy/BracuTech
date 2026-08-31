@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from manager.models import *
 from django.db import connection
 
-CAN_DELETE = False
+CAN_DELETE = True
 
 WEBSITE_NAME = "BracuTech"
 
@@ -352,7 +352,7 @@ def updateOrders(req):
         print(e)
     return redirect(f'/manager/dashboard/?filter=orders#{order_id   }')
 
-# Warehouse Management - Humaiya
+# Warehouse Management
 def editWarehouse(req,id):
     context = {"mytitle":WEBSITE_NAME}
     
@@ -437,7 +437,7 @@ def deleteWarehouse(req,id):
     
     return redirect(f"/manager/dashboard/?filter=warehouse")
 
-# Supplier Management - Humaiya
+# Supplier Management 
 def editSupplier(req, id):
     context = {"mytitle":WEBSITE_NAME}
     checkAuthentication(req, context)
@@ -526,7 +526,7 @@ def deleteSupplier(req, id):
     return redirect("/manager/dashboard/?filter=suppliers")
 
 
-# Product Management - Sadik
+# Product Management 
 def editProducts(req, id):
     context = {"mytitle":WEBSITE_NAME}
     checkAuthentication(req, context)
@@ -639,7 +639,7 @@ def deleteProducts(req, id):
     
     return redirect("/manager/dashboard/?filter=products")
 
-# Inventory Management - Jubayer
+# Inventory Management 
 def editInventory(req, id):
     context = {"mytitle":WEBSITE_NAME}
     checkAuthentication(req, context)
