@@ -1,0 +1,50 @@
+{% extends "frontview/base.html" %}
+
+{% load static %}
+
+{% block title %}Account{% endblock title %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'frontview/account_settings.css'%}">
+{% endblock links %}
+
+{% block body %}
+<div class="main-container">
+    <form action="/update_account_info/" method="post">
+        {% csrf_token %}
+        <div class="main-container-upper">
+            <div class="main-container-upper-left">
+                <div class="main-container-item" style="padding-bottom: 25px;">
+                    <p>First Name:</p>
+                </div>
+                <div class="main-container-item" style="padding-bottom: 25px;">
+                    <p>Last Name:</p>
+                </div>
+                <div class="main-container-item" style="padding-bottom: 25px;">
+                    <p>Email:</p>
+                </div>
+                <div class="main-container-item" style="padding-bottom: 25px;">
+                    <p>Address:</p>
+                </div>
+            </div>
+            <div class="main-container-upper-right">
+                <div class="main-container-item">
+                    <input class="mytextinput" name="first_name" type="text" placeholder="First Name" value="{{user.first_name}}">
+                </div>
+                <div class="main-container-item">
+                    <input class="mytextinput" name="last_name" type="text" placeholder="Last Name" value="{{user.last_name}}">
+                </div>
+                <div class="main-container-item">
+                    <input class="mytextinput" name="email" type="email" placeholder="Email" value="{{user.email}}" disabled>
+                </div>
+                <div class="main-container-item">
+                    <input class="mytextinput" name="address" type="text" placeholder="Address" value="{{user.address}}">
+                </div>
+            </div>
+        </div>
+        <div class="main-container-bottom">
+            <button class="mybtn">Save</button>
+        </div>
+    </form>
+</div>
+{% endblock body %}

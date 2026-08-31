@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="card-info">
+        <div class="card-item">
+            <h3 id="title">{{content.name}}</h3>
+        </div>
+        <div class="card-item">
+            <b>Locations:</b> {{content.location}}
+        </div>
+        <div class="card-item">
+            <b>Inventories:</b> {{content.total_inventory}}
+        </div>
+        <div class="card-item">
+            <b>Stocked Items:</b> {{content.stock}}
+        </div>
+    </div>
+    <div class="card-options">
+        <form action="edit/warehouse/{{content.warehouse_id}}" method="post">
+            {% csrf_token %}
+            <button>
+                <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+        </form>
+        <form action="delete/warehouse/{{content.warehouse_id}}" method="post">
+            {% csrf_token %}
+            <button>
+                <i class="fa-solid fa-trash"></i>
+            </button>
+        </form>
+    </div>
+</div>

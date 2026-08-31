@@ -1,0 +1,60 @@
+{% extends "frontview/base.html" %}
+
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'frontview/account_settings.css'%}">
+{% endblock links %}
+
+{% block body %}
+<div class="main-container">
+    <form 
+    {% if operation == "update" %}
+    action="/manager/dashboard/update/warehouse/" 
+    {% else %}
+    action="/manager/dashboard/create/warehouse/" 
+    {% endif %}
+    method="post">
+        {% csrf_token %}
+        <div class="main-container-item">
+            <input class="mytextinput" name="warehouse_id" type="text" placeholder="warehouse_id"
+                value="{{warehouse.warehouse_id}}" hidden>
+        </div>
+        <div class="main-container-upper">
+            <div class="main-container-upper-left">
+                <div class="main-container-item" style="padding-bottom: 25px;">
+                    <p>Warehouse Name:</p>
+                </div>
+                <div class="main-container-item" style="padding-bottom: 25px;">
+                    <p>Area:</p>
+                </div>
+                <div class="main-container-item" style="padding-bottom: 25px;">
+                    <p>District:</p>
+                </div>
+            </div>
+            <div class="main-container-upper-right">
+                <div class="main-container-item">
+                    <input class="mytextinput" name="warehouse_name" type="text" placeholder="Warehouse Name"
+                        value="{{warehouse.name}}">
+                </div>
+                <div class="main-container-item">
+                    <input class="mytextinput" name="area" type="text" placeholder="Area" value="{{warehouse.area}}">
+                </div>
+                <div class="main-container-item">
+                    <input class="mytextinput" name="district" type="text" placeholder="District"
+                        value="{{warehouse.district}}">
+                </div>
+            </div>
+        </div>
+        <div class="main-container-bottom">
+            {% if operation == "update" %}
+            <button class="mybtn">Update</button>
+            {% else %}
+            <button class="mybtn">Add</button>
+            {% endif %}
+        </div>
+    </form>
+</div>
+{% endblock body %}

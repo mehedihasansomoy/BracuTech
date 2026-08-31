@@ -1,0 +1,115 @@
+{% extends "frontview/base.html" %}
+
+{% load static %}
+
+{% block title %}Dashboard{% endblock title %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'frontview/dashboard.css'%}"> 
+{% endblock links %}
+
+{% block body %}
+
+<div class="dashboard-container">
+    <div class="dashboard-container-items dashboard-left">
+    </div>
+    <div class="dashboard-container-items dashboard-main">
+        <h1>Dashboard</h1>
+        <div class="dashboard-main-item">
+            <form action="/dashboard/" method="get">
+                <!-- {% csrf_token %} -->
+                <button class="dashboard-main-card" name="filter" value="all">
+                    All Orders({{total_order}})
+                </button>
+                <button class="dashboard-main-card" name="filter" value="pending">
+                    Pending Orders({{pending_order}})
+                </button>
+                <button class="dashboard-main-card" name="filter" value="confirmed">
+                    Confirmed Orders({{confirmed_order}})
+                </button>
+                <button class="dashboard-main-card" name="filter" value="completed">
+                    Completed Orders({{completed_order}})
+                </button>
+                <button class="dashboard-main-card" name="filter" value="cancelled">
+                    Cancelled Orders({{cancelled_order}})
+                </button>
+            </form>
+
+
+        </div>
+        <div class="dashboard-main-item">
+            {% for order in orders%}
+            {% if order.status|upper == selected_filter|upper or selected_filter == 'all' or selected_filter == None%}
+            <div class="item-card">
+                <div class="item-card-left">
+                    <img src="../../static/media/images/laptop.png" alt="">
+                </div>
+                <div class="item-card-middle">
+                    <h2><a style="color: black;"
+                            href="/product/product_no_{{order.product_id}}">{{order.product_name}}</a> x
+                        {{order.quantity}}</h2>
+                    <p><b>Price:</b> {{order.price}} BDT</p>
+                    <p><b>Brand:</b> {{order.brand}} </p>
+                    <p><b>Supplier:</b> {{order.supplier}}</p>
+                    <p><b>Weight:</b> {{order.weight}} g</p>
+                    <p><b>Addres:</b> {{order.address}}</p>
+                    <h3><b>Total Cost:</b> {{order.total_cost}} BDT</h3>
+                </div>
+                <div class="item-card-right">
+                    <p class="p-{{order.status}} orderStat">{{order.status}}</p>
+                    <p><b>Carrier Partner:</b>
+                        {% if order.carrier_partner_id == None %}
+                        N/A
+                        {% else %}
+                        {{order.carrier_partner}}
+                        {% endif %}
+                    </p>
+                    <p><b>Carrier Phone:</b>
+                        {% if order.carrier_partner_id == None %}
+                        N/A
+                        {% else %}
+                        {{order.carrier_phone}}
+                        {% endif %}
+                    </p>
+                    <p><b>Delivery Date:</b>
+                        {% if order.carrier_partner_id == None %}
+                        N/A
+                        {% else %}
+                        {{order.delivery_date|date:'D, d-M-Y'}}
+                        {% endif %}
+                    </p>
+                    <form action="/order/{{order.order_id}}/cancel/" method="post">
+                        {% csrf_token %}
+                        {% if order.status == 'PENDING' or order.status == 'PROCESSING' %}
+                        <button><b>CANCEL</b></button>
+                        {% elif order.status != 'CANCELLED'%}
+                        <button disabled><b>CANCEL</b></button>
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+            {% endif%}
+            {% endfor%}
+        </div>
+    </div>
+    <div class="dashboard-container-items dashboard-right">
+        {% if user.user_type == "manager" %}
+        <div class="dashboard-right-items">
+            <a href="/manager/dashboard/">Managing Dashboard</a>
+        </div>
+        {% endif %}
+        <div class="dashboard-right-items">
+            <a href="/account_settings">Account Settings</a>
+        </div>
+        <div class="dashboard-right-items">
+            <a href="/help">Help & Support</a>
+        </div>
+        <div class="dashboard-right-items">
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock body %}

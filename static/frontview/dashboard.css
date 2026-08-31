@@ -1,0 +1,657 @@
+/* ========================================
+   Dashboard
+   Matches Home Theme
+======================================== */
+
+
+/* ========================================
+   Dashboard Container
+======================================== */
+
+.dashboard-container {
+    display: flex;
+
+    width: 100%;
+    min-height: 90vh;
+
+    padding-top: 20px;
+
+    background-color: var(--background);
+    color: var(--text);
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   Dashboard Left Side
+======================================== */
+
+.dashboard-left {
+    flex: 0 0 15%;
+
+    background-color: var(--sidebar);
+    color: white;
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   Dashboard Main
+======================================== */
+
+.dashboard-main {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: var(--background);
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   Dashboard Main Item
+======================================== */
+
+.dashboard-main-item {
+    width: 80%;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   Dashboard Form
+======================================== */
+
+.dashboard-main-item form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 20px;
+
+    gap: 8px;
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   Form Input
+======================================== */
+
+.dashboard-main-item input,
+.dashboard-main-item select {
+    height: 40px;
+
+    padding: 0 12px;
+
+    background-color: var(--card-bg);
+    color: var(--text);
+
+    border: 1px solid var(--border);
+    border-radius: 6px;
+
+    outline: none;
+
+    box-sizing: border-box;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.dashboard-main-item input:focus,
+.dashboard-main-item select:focus {
+    border-color: var(--primary);
+
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+
+/* ========================================
+   Dashboard Main Card
+======================================== */
+
+.dashboard-main-card {
+    background-color: var(--card-bg);
+    color: var(--text);
+
+    margin: 2px;
+    padding: 10px 15px;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 2px 5px rgba(15, 23, 42, 0.08);
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.dashboard-main-card:hover {
+    background-color: #f8fafc;
+
+    border-color: var(--primary);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 12px rgba(15, 23, 42, 0.12);
+}
+
+
+/* ========================================
+   Dashboard Right Side
+======================================== */
+
+.dashboard-right {
+    flex: 0 0 15%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    padding: 30px;
+
+    gap: 10px;
+
+    background-color: var(--background);
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   Item Card
+======================================== */
+
+.item-card {
+    width: 80%;
+
+    margin: 5px;
+    padding: 8px;
+
+    display: flex;
+
+    background-color: var(--card-bg);
+    color: var(--text);
+
+    border: 1px dashed var(--border);
+    border-radius: 10px;
+
+    box-shadow: 0 2px 5px rgba(15, 23, 42, 0.08);
+
+    box-sizing: border-box;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.item-card:hover {
+    border-color: var(--primary);
+
+    box-shadow: 0 5px 12px rgba(15, 23, 42, 0.12);
+
+    transform: translateY(-1px);
+}
+
+
+/* ========================================
+   Item Card Left
+======================================== */
+
+.item-card-left {
+    margin: 10px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    flex: 0 0 auto;
+}
+
+.item-card-left img {
+    max-width: 100%;
+
+    height: auto;
+
+    border-radius: 8px;
+}
+
+
+/* ========================================
+   Item Card Middle
+======================================== */
+
+.item-card-middle {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    width: 50%;
+
+    padding: 5px 10px;
+
+    box-sizing: border-box;
+}
+
+.item-card-middle h1,
+.item-card-middle h2,
+.item-card-middle h3,
+.item-card-middle h4,
+.item-card-middle p {
+    margin: 4px 0;
+}
+
+
+/* ========================================
+   Item Card Right
+======================================== */
+
+.item-card-right {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+    align-items: flex-end;
+
+    width: 50%;
+
+    padding: 5px;
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   Order Status
+======================================== */
+
+.item-card-right p,
+.orderStat {
+    padding: 5px 10px 5px 15px;
+
+    margin: 5px 0;
+
+    border-radius: 10px;
+
+    border: 1px solid var(--border);
+
+    font-weight: 600;
+
+    color: white;
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   Order Status Colors
+======================================== */
+
+/* Pending */
+.p-PENDING {
+    background-color: #f59e0b;
+    border-color: #d97706;
+}
+
+/* Confirmed */
+.p-CONFIRMED {
+    background-color: var(--primary);
+    border-color: var(--primary-active);
+}
+
+/* Processing */
+.p-PROCESSING {
+    background-color: #6366f1;
+    border-color: #4f46e5;
+}
+
+/* On Hold */
+.p-ON_HOLD {
+    background-color: #f97316;
+    border-color: #ea580c;
+}
+
+/* Cancelled */
+.p-CANCELLED {
+    background-color: var(--danger);
+    border-color: #b91c1c;
+}
+
+/* Completed */
+.p-COMPLETED {
+    background-color: var(--success);
+    border-color: #15803d;
+}
+
+/* Failed */
+.p-FAILED {
+    background-color: #991b1b;
+    border-color: #7f1d1d;
+}
+
+
+/* ========================================
+   Item Card Button
+======================================== */
+
+.item-card-right button {
+    display: inline-block;
+
+    padding: 8px 12px;
+
+    background-color: red;
+    color: white;
+
+    border: none;
+    border-radius: 6px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.1s ease;
+}
+
+.item-card-right button:hover {
+    background-color: #b91c1c;
+
+    transform: translateY(-1px);
+}
+
+.item-card-right button:active {
+    transform: scale(0.98);
+}
+
+
+/* ========================================
+   General Button
+======================================== */
+
+button {
+    font-family: inherit;
+}
+
+button:disabled {
+    opacity: 0.5;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* ========================================
+   Primary Dashboard Button
+   Use class="primary-btn"
+======================================== */
+
+.primary-btn {
+    padding: 8px 14px;
+
+    background-color: var(--primary);
+    color: white;
+
+    border: none;
+    border-radius: 6px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.1s ease;
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.primary-btn:active {
+    background-color: var(--primary-active);
+
+    transform: scale(0.98);
+}
+
+
+/* ========================================
+   Dashboard Headings
+======================================== */
+
+.dashboard-main h1,
+.dashboard-main h2,
+.dashboard-main h3,
+.dashboard-main h4 {
+    color: var(--text);
+}
+
+
+/* ========================================
+   Muted Text
+======================================== */
+
+.dashboard-main .muted,
+.dashboard-right .muted {
+    color: var(--muted-text);
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 992px) {
+
+    .dashboard-left {
+        flex: 0 0 20%;
+    }
+
+    .dashboard-right {
+        flex: 0 0 20%;
+
+        padding: 20px;
+    }
+
+    .dashboard-main-item {
+        width: 90%;
+    }
+
+    .item-card {
+        width: 90%;
+    }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+
+    .dashboard-container {
+        flex-direction: column;
+
+        padding-top: 10px;
+    }
+
+
+    /* Left */
+
+    .dashboard-left {
+        width: 100%;
+
+        flex: none;
+
+        min-height: auto;
+    }
+
+
+    /* Main */
+
+    .dashboard-main {
+        width: 100%;
+
+        flex: none;
+    }
+
+    .dashboard-main-item {
+        width: 95%;
+    }
+
+
+    /* Form */
+
+    .dashboard-main-item form {
+        width: 100%;
+
+        margin: 15px 0;
+
+        flex-wrap: wrap;
+    }
+
+
+    /* Right */
+
+    .dashboard-right {
+        width: 100%;
+
+        flex: none;
+
+        padding: 15px;
+
+        align-items: center;
+    }
+
+
+    /* Cards */
+
+    .item-card {
+        width: 95%;
+
+        flex-wrap: wrap;
+    }
+
+    .item-card-middle,
+    .item-card-right {
+        width: 100%;
+    }
+
+    .item-card-right {
+        align-items: flex-start;
+
+        gap: 10px;
+
+        padding: 10px;
+    }
+}
+
+.item-card-right p{
+    color: black;
+}
+
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 480px) {
+
+    .dashboard-container {
+        padding-top: 5px;
+    }
+
+
+    .dashboard-main-item {
+        width: 100%;
+    }
+
+
+    .dashboard-main-item form {
+        padding: 0 10px;
+
+        box-sizing: border-box;
+    }
+
+
+    .dashboard-main-card {
+        width: 90%;
+
+        text-align: center;
+    }
+
+
+    .item-card {
+        width: 95%;
+
+        margin: 5px auto;
+
+        padding: 5px;
+    }
+
+
+    .item-card-left {
+        width: 100%;
+
+        margin: 8px;
+
+        align-items: center;
+    }
+
+
+    .item-card-middle {
+        width: 100%;
+
+        text-align: center;
+    }
+
+
+    .item-card-right {
+        width: 100%;
+
+        align-items: center;
+
+        text-align: center;
+    }
+
+
+    .item-card-right p,
+    .orderStat {
+        margin: 5px auto;
+    }
+
+
+    .item-card-right button {
+        width: 100%;
+
+        max-width: 200px;
+    }
+}

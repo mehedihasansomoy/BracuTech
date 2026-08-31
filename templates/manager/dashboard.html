@@ -1,0 +1,114 @@
+{% extends "frontview/base.html" %}
+
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'manager/dashboard.css'%}">
+<link rel="stylesheet" href="{% static 'frontview/dashboard.css'%}">
+{% endblock links %}
+
+{% block body %}
+<div class="main-container">
+    <div class="main-container-item">
+        <div class="container">
+            <div class="container-left">
+                <div class="container-left-item" style="padding: 20px;">
+                    <h2>Manage</h2>
+                </div>
+                <div class="container-left-item">
+                    <p><a href="?filter=warehouse">warehouse</a></p>
+                </div>
+                <div class="container-left-item">
+                    <p><a href="?filter=inventory">Inventory</a></p>
+                </div>
+                <div class="container-left-item">
+                    <p><a href="?filter=orders">Orders</a></p>
+                </div>
+                <div class="container-left-item">
+                    <p><a href="?filter=suppliers">Suppliers</a></p>
+                </div>
+                <!-- <div class="container-left-item">
+                    <p><a href="?filter=categories">Categories</a></p>
+                </div> -->
+                <div class="container-left-item">
+                    <p><a href="?filter=products">Products</a></p>
+                </div>
+                <div class="container-left-item">
+                    <p><a href="?filter=customers">Customers</a></p>
+                </div>
+            </div>
+            <div class="container-mid">
+
+                {% if selected_filter == None%}
+                <h1 style="text-align: center;">{{"WAREHOUSE"|upper}}</h1>
+                {% else %}
+                <h1 style="text-align: center;">{{selected_filter|upper}}</h1>
+                {% endif%}
+                
+                {% if selected_filter != "orders" and selected_filter != "customers" and selected_filter != "categories"%}
+                <div class="manager-dashboard-add">
+                    <form {% if selected_filter == None %}action="add/warehouse"{% else %}action="add/{{selected_filter}}"{%endif%} method="get">
+                        <button>+</button>
+                    </form>
+                </div>
+                {% endif %}
+
+                {% for content in contents%}
+
+                {% if selected_filter == "warehouse" or selected_filter == None %}
+                {% include 'manager/section_warehouse.html' %}
+
+                {% elif selected_filter == "inventory" %}
+                {% include 'manager/section_inventory.html' %}
+
+                {% elif selected_filter == "customers" %}
+                {% include 'manager/section_customers.html' %}
+
+                {% elif selected_filter == "suppliers" %}
+                {% include 'manager/section_suppliers.html' %}
+
+                {% elif selected_filter == "categories" %}
+                {% include 'manager/section_categories.html' %}
+
+                {% elif selected_filter == "products" %}
+                {% include 'manager/section_products.html' %}
+
+                {% elif selected_filter == "orders" %}
+                {% include 'manager/section_orders.html' %}
+
+                {% endif %}
+                {% endfor %}
+
+            </div>
+            <div class="container-right">
+                <div class="container-right-item" style="padding: 20px;">
+                    <h2 style="color: white;">WARNING</h2>
+                </div>
+                <div class="container-right-item">
+                    {% if inventories%}
+                    {% for inventory in inventories %}
+                    {% if inventory.quantity <= 20 %}
+                    <a href="/manager/dashboard/?filter=inventory#i-{{inventory.inventory_id}}" style="text-decoration: none; color: black">
+                    <div class="warning-card">
+                        <p><b>Inventory No.</b> {{inventory.inventory_id}}</p>
+                        <p><b>Product:</b> {{inventory.product}}</p>
+                        <p><b>Quantity:</b> {{inventory.quantity}}</p>
+                    </div>
+                    </a>
+                    {% endif%}
+                    {% endfor %}
+                    {% else %}
+                    <div class="warning-card" style="background-color: rgb(0, 159, 0); color: white;">
+                        <p><b>Stock Level is OK</b></p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock body %}

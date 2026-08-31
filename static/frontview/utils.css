@@ -1,0 +1,62 @@
+.mybtn,
+.mybtn-2 {
+    width: 10em;
+    border: 0;
+    border-radius: 5px;
+    background-color: #007bff;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.mybtn {
+    color: white;
+    padding: 7px;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.mybtn-2 {
+    color: white;
+    padding: 3px;
+}
+
+.mybtn:hover,
+.mybtn-2:hover {
+    background-color: #0069d9;
+}
+
+.mybtn:active,
+.mybtn-2:active {
+    background-color: #005cbf;
+}
+
+.mybtn:disabled,
+.mybtn-2:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.mytextinput,
+.mytextinput-2 {
+    background-color: #343a40;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.mytextinput {
+    padding: 10px;
+    margin: 2px 0;
+}
+
+.mytextinput-2 {
+    padding: 5px;
+}
+
+.mytextinput:focus,
+.mytextinput-2:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 1px;
+}
+    

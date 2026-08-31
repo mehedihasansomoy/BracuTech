@@ -1,0 +1,90 @@
+{% extends "frontview/base.html" %}
+
+{% block title %}{{product.product_name}}{% endblock title %}
+
+{% block body %}
+
+<div class="p-detail-container">
+    <div class="p-detail-main">
+        <div class="p-left">
+            <img src="../../static/media/images/laptop.png" alt="">
+        </div>
+        <div class="p-mid">
+            <h3>{{product.product_name}}</h3>
+            <p>Brand: {{product.brand}} </p>
+            <p>Supplier: {{product.supplier}}</p>
+            <p>Weight: {{product.weight}} gm</p>
+            <p>Price: {{product.price}} BDT</p>
+            {% if product.total_quantity != 0 %}
+            <p>Available: {{product.total_quantity}}</p>
+            <form action="/place_order/" method="post">
+                {% csrf_token %}
+                <p>Quantity: <input type="number" name="qty" id="" min="1" step="1" max="{{product.total_quantity}}"
+                        required value="1"></p>
+                    <input type="hidden" name="id" value="{{product.product_id}}">
+                
+                {% if user.user_type == "manager" %}
+                <button type="submit" class="mybtn" disabled>Order</button>
+                {% else %}
+                <button type="submit" class="mybtn">Order</button>
+                {% endif %}
+            </form>
+            {% else %}
+            <p style="color: red; font-weight: bold;">Out of Stock</p>
+            {% endif %}
+        </div>
+        <div class="p-right">
+            <!-- <div class="p-right-address">
+                <div class="p-right-address-left">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="p-right-address-mid">Dhaka, Dhaka North, Banani Road No. 12 - 19</div>
+                <div class="p-right-address-right"><a href="/">CHANGE</a></div>
+            </div> -->
+
+            <div class="p-right-delivery">
+                <div class="p-right-delivery-left">
+                    <i class="fas fa-wallet"></i>
+                </div>
+                <div class="p-right-delivery-mid">
+                    <div class="p-right-delivery-mid-0">Standard Delivery</div>
+                    <!-- <div class="p-right-delivery-mid-1">Get by 27 Mar-1 Apr</div> -->
+                </div>
+                <div class="p-right-delivery-right">BDT 70</div>
+            </div>
+        </div>
+    </div>
+    <div class="p-detail-main-desc-container">
+        <div class="text-description">
+            <h3>Descriptions</h3>
+        </div>
+        <div class="p-detail-main-desc">
+            {{product.specs}}
+        </div>
+    </div>
+
+    <div class="p-detail-main-desc-container">
+        {% if did_order == True %}
+        <form action="/product/product_no_{{product.product_id}}/add_review/" method="post" class="p-detail-main-review-form">
+            {% csrf_token %}
+            <h3>Leave a Review</h3>
+            <div class="p-detail-main-desc">
+                <input type="hidden" name="product_id" value="{{product.product_id}}">
+                <textarea name="comment" id="" cols="30" rows="10" placeholder="Write your review here..." required></textarea>
+                <br>
+                <button type="submit" class="mybtn">Submit</button>
+            </div>
+        </form>
+        {% endif %}
+        <h2>REVIEWS</h2>
+        {% for i in reviews %}
+        <div class="p-detail-main-review">
+            <h4>{{i.user.first_name}} {{i.user.last_name}}</h4>
+            <p>{{i.comment}}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<!-- <h1>Product Detail</h1> -->
+
+{% endblock body %}

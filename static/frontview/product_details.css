@@ -1,0 +1,170 @@
+.p-detail-container {
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 30px 15px;
+    box-sizing: border-box;
+}
+
+.p-detail-main {
+    display: flex;
+    width: 60%;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.p-left,
+.p-mid,
+.p-right {
+    flex: 1;
+}
+
+.p-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.p-left img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.p-right-address,
+.p-right-delivery {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.p-detail-main-desc-container {
+    width: 60%;
+    margin: 20px 5px;
+}
+
+.p-detail-main-review {
+    background: #ffffff;
+    padding: 18px 22px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #dbe7f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: 0.3s ease;
+    position: relative;
+}
+
+.p-detail-main-review:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    border-color: #8ecae6;
+}
+
+.p-detail-main-review h4 {
+    margin: 0 0 8px 0;
+    font-size: 17px;
+    font-weight: 600;
+    color: #1d3557;
+}
+
+.p-detail-main-review h4::before {
+    content: "👤";
+    margin-right: 8px;
+}
+
+.p-detail-main-review p {
+    margin: 0;
+    color: #555;
+    font-size: 15px;
+    line-height: 1.6;
+    padding-left: 28px;
+}
+
+.p-detail-main-review-form {
+    background: linear-gradient(135deg, #f5fbff, #e8f5ff);
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    border: 1px solid #cfe8f7;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.p-detail-main-review-form h3 {
+    margin: 0 0 18px 0;
+    color: #1d3557;
+    font-size: 22px;
+}
+
+.p-detail-main-review-form textarea {
+    width: 100%;
+    min-height: 130px;
+    box-sizing: border-box;
+    padding: 15px;
+    border: 1px solid #c5dce9;
+    border-radius: 10px;
+    resize: vertical;
+    outline: none;
+    font-family: inherit;
+    font-size: 15px;
+    color: #333;
+    background: #ffffff;
+    transition: 0.3s ease;
+}
+
+.p-detail-main-review-form textarea::placeholder {
+    color: #999;
+}
+
+.p-detail-main-review-form textarea:focus {
+    border-color: #4dabd8;
+    box-shadow: 0 0 0 3px rgba(77, 171, 216, 0.15);
+}
+
+.p-detail-main-review-form br {
+    display: none;
+}
+
+.p-detail-main-review-form .mybtn {
+    margin-top: 15px;
+    padding: 11px 28px;
+    border: none;
+    border-radius: 8px;
+    background: #1d3557;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.p-detail-main-review-form .mybtn:hover {
+    background: #457b9d;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+@media (max-width: 768px) {
+    .p-detail-main,
+    .p-detail-main-desc-container {
+        width: 95%;
+    }
+
+    .p-detail-main {
+        flex-direction: column;
+    }
+
+    .p-left,
+    .p-mid,
+    .p-right {
+        width: 100%;
+    }
+
+    .p-right {
+        height: auto;
+    }
+}

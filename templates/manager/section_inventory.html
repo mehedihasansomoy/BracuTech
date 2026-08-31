@@ -1,0 +1,52 @@
+<div class="card" id="i-{{content.inventory_id}}">
+    <div class="card-info">
+        <div class="card-item">
+            <h2 style="color: rgb(0, 0, 131);">Inventory No. {{content.inventory_id}}</h2>
+        </div>
+        <div class="card-item">
+            <h3>{{content.product_name}}</h3>
+        </div>
+        <div class="card-item">
+            <b>Brand:</b> {{content.brand}}
+        </div>
+        <div class="card-item">
+            <b>Model:</b> {{content.model_number}}
+        </div>
+        <div class="card-item">
+            <b>Weight:</b> {{content.weight}} g
+        </div>
+        <div class="card-item">
+            <b>Price:</b> {{content.price}} BDT
+        </div>
+        <div class="card-item">
+            <b>Supplier:</b> {{content.supplier_name}}
+        </div>
+        <br>
+        <div class="card-item">
+            <b>Warehouse:</b> {{content.warehouse_name}}
+        </div>
+        {% if content.quantity > 0 %}
+        <div class="card-item">
+            <b>In Stock:</b> {{content.quantity}}
+        </div>
+        {% else %}
+        <div class="card-item">
+            <h2 style="color: rgb(164, 0, 0);">Out Of Stock</h2>
+        </div>
+        {% endif %}
+    </div>
+    <div class="card-options">
+        <form action="edit/inventory/{{content.inventory_id}}" method="post">
+            {% csrf_token %}
+            <button>
+                <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+        </form>
+        <form action="delete/inventory/{{content.inventory_id}}" method="post">
+            {% csrf_token %}
+            <button>
+                <i class="fa-solid fa-trash"></i>
+            </button>
+        </form>
+    </div>
+</div>

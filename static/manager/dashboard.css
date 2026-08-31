@@ -1,0 +1,681 @@
+/* ========================================
+   FULL SCREEN MAIN CONTAINER
+======================================== */
+
+.main-container {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: flex-start;
+    align-items: stretch;
+
+    background-color: var(--background);
+    color: var(--text);
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   FULL SCREEN LAYOUT
+======================================== */
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+
+    background-color: var(--background);
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   LEFT SIDEBAR
+======================================== */
+
+.container-left {
+    width: 15%;
+    min-width: 180px;
+
+    min-height: 100vh;
+
+    /* background-color: var(--sidebar); */
+    background-color: rgb(30, 41, 59);
+
+    color: rgb(255, 255, 255);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 25px 15px;
+
+    flex-shrink: 0;
+
+    box-sizing: border-box;
+}
+
+.container-left a {
+    width: 100%;
+
+    padding: 10px 15px;
+
+    color: rgb(250, 246, 246);  
+
+    text-decoration: none;
+
+    border-radius: 6px;
+
+    box-sizing: border-box;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.container-left a:hover {
+    background-color: var(--dark-blue);
+
+    color: blue;
+}
+
+
+/* ========================================
+   CENTER / MAIN CONTENT
+======================================== */
+
+.container-mid {
+    width: 70%;
+    min-height: 100vh;
+
+    padding: 25px 30px;
+
+    background-color: var(--background);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   RIGHT SIDEBAR
+======================================== */
+
+.container-right {
+    width: 15%;
+    min-width: 180px;
+
+    min-height: 100vh;
+
+    background-color: var(--sidebar);
+
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 25px 15px;
+
+    flex-shrink: 0;
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   CARD
+======================================== */
+
+.card {
+    width: 100%;
+
+    background-color: var(--card-bg);
+
+    margin: 10px 0;
+
+    padding: 12px;
+
+    border: 1px dashed var(--border);
+
+    border-radius: 10px;
+
+    display: flex;
+
+    gap: 15px;
+
+    color: var(--text);
+
+    box-shadow: 0 2px 5px rgba(15, 23, 42, 0.08);
+
+    box-sizing: border-box;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.card:hover {
+    border-color: var(--primary);
+
+    box-shadow: 0 6px 15px rgba(15, 23, 42, 0.12);
+
+    transform: translateY(-2px);
+}
+
+
+/* ========================================
+   CARD IMAGE
+======================================== */
+
+.card-img {
+    width: 120px;
+    min-width: 120px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.card-img img {
+    width: 110px;
+    height: 110px;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+}
+
+
+/* ========================================
+   CARD INFORMATION
+======================================== */
+
+.card-info {
+    flex: 1;
+
+    width: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    color: var(--text);
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   CARD OPTIONS
+======================================== */
+
+.card-options {
+    width: 45px;
+    min-width: 45px;
+
+    display: flex;
+
+    justify-content: flex-end;
+    align-items: flex-start;
+
+    text-align: right;
+}
+
+.card-options button {
+    width: 32px;
+    height: 32px;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    background-color: var(--card-bg);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+
+    border-radius: 6px;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.1s ease;
+}
+
+.card-options button:hover {
+    background-color: var(--primary);
+
+    color: white;
+
+    border-color: var(--primary);
+
+    transform: translateY(-1px);
+}
+
+
+/* ========================================
+   ORDER INFORMATION
+======================================== */
+
+.card-info-order {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ========================================
+   ORDER TOP
+======================================== */
+
+.card-info-order-top {
+    width: 100%;
+
+    display: flex;
+
+    gap: 10px;
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   ORDER LEFT
+======================================== */
+
+.card-info-order-left {
+    width: 40%;
+
+    margin: 2px;
+
+    padding: 12px;
+
+    background-color: #f8fafc;
+
+    border: 1px solid var(--border);
+
+    border-radius: 6px;
+
+    color: var(--text);
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   ORDER RIGHT
+======================================== */
+
+.card-info-order-right {
+    width: 60%;
+
+    margin: 2px;
+
+    padding: 12px;
+
+    background-color: #f8fafc;
+
+    border: 1px solid var(--border);
+
+    border-radius: 6px;
+
+    color: var(--text);
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   ORDER BOTTOM
+======================================== */
+
+.card-info-order-bottom {
+    width: 100%;
+
+    text-align: end;
+
+    padding: 12px;
+
+    color: var(--muted-text);
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   ADD BUTTON
+======================================== */
+
+.manager-dashboard-add {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    padding: 10px 0;
+}
+
+.manager-dashboard-add button {
+    width: 55px;
+    height: 55px;
+
+    border: 2px solid var(--primary);
+
+    border-radius: 50%;
+
+    /* background-color: var(--primary); */
+    background-color: rgb(30, 41, 59);
+
+    color: white;
+
+    font-size: 24px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 3px 8px rgba(37, 99, 235, 0.2);
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.1s ease,
+        box-shadow 0.2s ease;
+}
+
+.manager-dashboard-add button:hover {
+    /* background-color: var(--primary-hover); */
+    background-color: rgb(37, 99, 235);
+
+    box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3);
+
+    transform: translateY(-2px);
+}
+
+.manager-dashboard-add button:active {
+    background-color: var(--primary-active);
+
+    transform: scale(0.95);
+}
+
+
+/* ========================================
+   WARNING CARD
+======================================== */
+
+.warning-card {
+    width: 100%;
+
+    margin: 7px 0;
+    padding: 12px 15px;
+
+    background-color: #eff6ff;
+
+    border: 1px solid #bfdbfe;
+    border-left: 4px solid var(--primary);
+
+    border-radius: 8px;
+
+    color: var(--text);
+
+    box-sizing: border-box;
+
+    box-shadow: 0 2px 5px rgba(15, 23, 42, 0.08);
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.warning-card:hover {
+    background-color: #dbeafe;
+
+    border-color: var(--primary);
+
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.12);
+}
+
+
+
+/* ========================================
+   HIGHLIGHT
+======================================== */
+
+.highlight {
+    background-color: #dbeafe;
+
+    border: 2px solid var(--primary);
+
+    border-radius: 6px;
+
+    color: var(--text);
+
+    padding: 5px;
+}
+
+
+/* ========================================
+   GENERAL BUTTON
+======================================== */
+
+.container button {
+    font-family: inherit;
+}
+
+
+/* ========================================
+   LARGE DESKTOP
+======================================== */
+
+@media (min-width: 1400px) {
+
+    .container-left {
+        width: 13%;
+    }
+
+    .container-mid {
+        width: 74%;
+
+        padding: 30px 40px;
+    }
+
+    .container-right {
+        width: 13%;
+    }
+
+    .card {
+        padding: 15px;
+
+        gap: 20px;
+    }
+
+    .card-img {
+        width: 140px;
+        min-width: 140px;
+    }
+
+    .card-img img {
+        width: 130px;
+        height: 130px;
+    }
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 992px) {
+
+    .container-left {
+        width: 18%;
+        min-width: 150px;
+    }
+
+    .container-mid {
+        width: 64%;
+
+        padding: 20px;
+    }
+
+    .container-right {
+        width: 18%;
+        min-width: 150px;
+    }
+
+    .card-img {
+        width: 90px;
+        min-width: 90px;
+    }
+
+    .card-img img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .card {
+        gap: 10px;
+    }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+
+    .container {
+        flex-direction: column;
+    }
+
+    .container-left {
+        width: 100%;
+        min-width: 0;
+        min-height: auto;
+
+        padding: 10px;
+
+        flex-direction: row;
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .container-left a {
+        width: auto;
+    }
+
+    .container-mid {
+        width: 100%;
+        min-height: auto;
+
+        padding: 15px;
+    }
+
+    .container-right {
+        width: 100%;
+        min-width: 0;
+        min-height: auto;
+
+        padding: 15px;
+    }
+
+    .card {
+        width: 100%;
+
+        flex-wrap: wrap;
+
+        margin: 6px 0;
+    }
+
+    .card-img {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .card-img img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .card-info {
+        width: calc(100% - 45px);
+    }
+
+    .card-options {
+        width: 40px;
+        min-width: 40px;
+    }
+
+    .card-info-order-top {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .card-info-order-left,
+    .card-info-order-right {
+        width: 100%;
+        margin: 2px 0;
+    }
+
+    .manager-dashboard-add {
+        padding: 10px 0;
+    }
+}
+
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 480px) {
+
+    .container-mid {
+        padding: 8px;
+    }
+
+    .container-left,
+    .container-right {
+        padding: 8px;
+    }
+
+    .card {
+        padding: 8px;
+        border-radius: 8px;
+    }
+
+    .card-info-order-left,
+    .card-info-order-right {
+        padding: 8px;
+    }
+
+    .warning-card {
+        margin: 5px 0;
+        padding: 8px;
+    }
+
+    .manager-dashboard-add button {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+button{
+    background-color: var(--primary);
+}
